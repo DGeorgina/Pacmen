@@ -14,5 +14,42 @@
 
 Слика 2-Завршно сценарио на играта каде црвениот Pac-Man е победник
 
+2.Имплементација
+Pac-Man е претставен со една класа каде што се чуваат границите на неговото поле,насоката,дали устата му е отворена,центарот,радиусот и четка за боење. Важни методи тука се Move() -го придвижува Pac-Man на секој настан timer1_Tick() и Draw(Graphics g)-гледа во која насока устата е отворена и соодветно го исцртува Pac-Man.
+
+За двете црни линии има посебна класа Positioner.Таму се чува нивната пресечна точка (Center) ширина и висина на делот од екранот над кој што се простираат, Random објект за одредување на центарот и за тоа кај кој Pac-Man ќе се падне центарот,два објекти од тип Rectangle наречени horizontal и vertical (со кои ќе се претставуваат црните линии,тука класата Rectangle е искористена затоа што нуди метод intersectsWith() кој е искористен за да се види дали црните линии имаат заеднички точки со правоаголникот во кој е Pac-Man), брзината на движење (Velocity),аголот под кој ќе почне да се движи(Angle),брзината по X оската(velocity) и брзината по Y оската(velocityY).
+
+Во класата Form1 се чува статички променливи TIMER_INTERVAL(на секои TIMER_INTERVAL милисекунди се повикува timer1_Tick() настанот каде што се бришат кружниците-храната кои се доволно блиску до некој Pac-Man,се поместуваат движечките фигури,се проверува дали е крај на играта и целата сцена се исцртува од почеток), WORLD_WIDTH(означува колку кружници ќе има еден Pac-Man во еден ред), WORLD_HEIGHT(колку кружници ќе има еден Pac-Man во една колона).Тука се чуваат и границите на двата играчи како променливи од тип Rectangle,листи за чување на храната,трите движечки фигури(pacman1, pacman2 и positioner) и времето кое го имаат играчите за да победат(timeInSeconds).
+
+Детален опис на функцијата Move() од класата PacMan
+Во зависност од насоката на главата на PacMan тој се движи за 15 единици десно(на X координатата на неговиот центар се додава value=15),лево(на координатата на неговиот центар се одзема value=15),нагоре (на Y координатата на неговиот центар се одзема value=15) и надолу(на Y координатата на неговиот центар се додава value=15).Центарот во програмата се вика position.Притоа се внимава ако ново пресметаната X вредност е поголема од десната граница тогаш се поставува на левата граница(така фигурата PacMan се враќа на почеток) и ако излева од левата граница се поставува на десната граница.Логиката е слична и за координатата Y,горната и долната граница.
+
+           public void Move()
+          {            int value = 15;
+            if (direction == DIRECTION.right)
+            {
+                int newX = position.X + value;
+                if (newX > rightLimit) newX = leftLimit;//if it exceeds the right limit of the field put him on the left limit
+                position = new Point(newX, position.Y);
+            }else if (direction == DIRECTION.left)
+            {
+                int newX = position.X - value;
+                if (newX <leftLimit) newX = rightLimit;
+                position = new Point(newX, position.Y);
+
+            }else if (direction == DIRECTION.up)
+            {
+                int newY = position.Y - value;
+                if (newY <0) newY = bottomLimit;
+                position = new Point(position.X, newY);
+            }
+            else
+            {
+                int newY = position.Y + value;
+                if (newY > bottomLimit) newY = 0;
+                position = new Point(position.X, newY);
+            }
+            isOpenMouth = !isOpenMouth;
+        }
 
 
