@@ -15,7 +15,38 @@
 Слика 2-Завршно сценарио на играта каде црвениот Pac-Man е победник
 
 2.Имплементација
-Pac-Man е претставен со една класа каде што се чуваат границите на неговото поле,насоката,дали устата му е отворена,центарот,радиусот и четка за боење. Важни методи тука се Move() -го придвижува Pac-Man на секој настан timer1_Tick() и Draw(Graphics g)-гледа во која насока устата е отворена и соодветно го исцртува Pac-Man.
+Фигурата Pac-Man е претставена со една класа каде што се чуваат границите на нејзиното поле,насоката,информација дали устата е отворена,центарот,радиусот и четка за боење. Важни методи тука се Move() -ја придвижува фигурата Pac-Man на секој настан timer1_Tick() и Draw(Graphics g)-гледа во која насока устата е отворена и соодветно ја исцртува фигурата Pac-Man.
+
+    public class PacMan
+    {
+        public enum DIRECTION { left,right, up, down };
+        public Point position{ get; set; }//the center of the pacman
+        public DIRECTION  direction { get; set; }
+
+        public static int  radius  = 20;
+        public bool isOpenMouth { get; set; }
+        public Brush brush { get; set; }
+        public int leftLimit { get; set; }//the left limit of the field where the pacman may walk
+        public int rightLimit { get; set; }//the right limit of the field where the pacman may walk
+        public int bottomLimit { get; set; }//the bottom limit of the field where the pacman may walk
+                                            //the top limit is always 0
+        public PacMan(int left,int right,int bottom,Point position,Color color)
+        {
+            direction=DIRECTION.right;//Initially the head is directed to the right
+            isOpenMouth = true;//Initially the mouth is open
+            //...
+        }
+
+        public void Move()
+        {
+           //...
+        }
+
+        public void Draw(Graphics g)
+        {
+          //...  
+        } 
+    } 
 
 За двете црни линии има посебна класа Positioner.Таму се чува нивната пресечна точка (Center) ширина и висина на делот од екранот над кој што се простираат, Random објект за одредување на центарот и за тоа кај кој Pac-Man ќе се падне центарот,два објекти од тип Rectangle наречени horizontal и vertical (со кои ќе се претставуваат црните линии,тука класата Rectangle е искористена затоа што нуди метод intersectsWith() кој е искористен за да се види дали црните линии имаат заеднички точки со правоаголникот во кој е Pac-Man), брзината на движење (Velocity),аголот под кој ќе почне да се движи(Angle),брзината по X оската(velocity) и брзината по Y оската(velocityY).
 
