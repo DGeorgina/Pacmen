@@ -1,0 +1,11 @@
+C:\Users\PC\source\repos\Paceman\Paceman\bin\Debug\Paceman.exe.config
+C:\Users\PC\source\repos\Paceman\Paceman\bin\Debug\Paceman.exe
+C:\Users\PC\source\repos\Paceman\Paceman\bin\Debug\Paceman.pdb
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Pacman.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Pacman.csproj.SuggestedBindingRedirects.cache
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Pacman.Form1.resources
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Paceman.Properties.Resources.resources
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Pacman.csproj.GenerateResource.cache
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Pacman.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Paceman.exe
+C:\Users\PC\source\repos\Paceman\Paceman\obj\Debug\Paceman.pdb
